@@ -22,13 +22,8 @@
         top: 10%;
         left: 30%;
 
+
       }
-      table div  {
-				display: none;
-			}
-      table div .ContActive {
-				display: block;
-			}
     </style> 
        
     <script type="text/javascript"> //这里是JavaScript
@@ -117,7 +112,7 @@
           <button >
             登录
           </button>
-          <div>
+          <div style="display: hidden;">
           <tr>
             <td>用户名</td>
             <td><input style="width:150px;height:30px;" type="text" name="username" size="20"></td>
