@@ -1,0 +1,105 @@
+<!DOCTYPE html> 
+<html> 
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <title>登录</title>
+  </head>   
+  <body>
+    <style>
+dfv{
+  height: 100%;
+  width: 100%;
+  position: absolute;
+  background-image: url('./web/img/gzdx-bg.jpg');
+  background-size: cover;
+  background-position: center;
+
+}
+table{
+  display: flex;
+  justify-items: center;
+}
+table tbody tr{
+      border: 1px solid  black;
+      display: flex;
+      border-radius: 30px;
+      width: auto;
+      height: auto;
+      padding: 10px;
+      font-size: 26px;
+      background-color: #fff;
+      position: relative;
+    }
+    </style> 
+       
+    <script type="text/javascript"> //这里是JavaScript
+      window.onload = function () {
+        document.getElementById("img").onclick = function () {
+          /*document.getElementById()通过元素的id来获取元素，
+           .getElementById("img")先获取"img" 元素；
+           然后.onclick()，点击触发一个事件，这个事件发生会执行funciton()函数。               
+           目的:点击id为img的页面元素时会触发funciton函数。生成验证码*/
+          this.src = "CheckcodeServlet?time" + new Date().getTime();
+          //new Date().getTime()增加时间戳来更换验证码图片
+        };
+      };
+      
+    </script>
+    <script type="text/javascript">
+    //检查输入是否为空
+      function Check() {
+        const username = document.form1.username.value;
+        const password = document.form1.password.value;
+        const checkcode = document.form1.checkcode.value;
+
+        if (!username) {
+          alert("用户名不能为空！");
+          document.form1.username.focus();
+          return false;
+        }
+
+        if (!password) {
+          alert("密码不能为空！");
+          document.form1.password.focus();
+          return false;
+        }
+
+        if (!checkcode) {
+          alert("验证码不能为空！");
+          document.form1.checkcode.focus();
+          return false;
+        }
+
+        return true;
+      }
+    </script>
+    
+  <dfv>
+ <form action="LoginServlet" method="post" name="form1" onSubmit="return Check()">
+        <!-- form属性action="LoginServlet"中，LoginServlet待后续实现，用于处理请求--> 
+        <table>
+
+          <tr>
+            <td>用户名</td>
+            <td><input style="width:150px;height:30px;" type="text" name="username" size="20"></td>
+          </tr>
+          <tr>
+            <td>密&nbsp;&nbsp;码</td>
+            <td><input style="width: 150px;height:30px;" type="password" name="password" size="20"></td>
+          </tr>
+          <tr>
+            <td>验证码</td>
+            <td><input style="width: 100px;height:30px;" type="text" name="checkcode" size="15">
+              <img style="width:150px;height:32px;" id="img" src="CheckcodeServlet"  alt="[验证码待续]" align="center">
+              <!-- id为img的页面元素,显示验证码图像；src="CheckcodeServlet"中，CheckcodeServlet待后续实现-->                    
+            </td>
+          </tr>  
+          <tr><td></td>                    
+            <td><input style="margin-left:40px;font-size:20px;" type="submit" value="登&nbsp;录">
+              <font style="font-size:15px">&nbsp;&nbsp;&nbsp;&nbsp;<a href="forgetPassword.jsp">忘记密码 </a> </font></td>                                   
+          </tr>
+        </table>
+      </form>
+    </div>
+  </body>
+</html>

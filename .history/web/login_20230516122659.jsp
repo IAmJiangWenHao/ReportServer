@@ -56,7 +56,7 @@
       text-decoration:none;
     }
     table tbody tr td input{
-      border: 1;
+      border: 0;
       background-color: #fff;
     }
   </style>

@@ -14,50 +14,6 @@
     <title>忘记密码</title>
   </head>
   <body>
-    <style>
-          dfv {
-      height: 100%;
-      width: 100%;
-      position: absolute;
-      background-image: url('./web/img/gzdx-bg.jpg');
-      background-size: cover;
-      background-position: center;
-
-    }
-
-    form {
-      height: 100%;
-    }
-
-    table {
-      height: 100%;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-    }
-
-    table tbody tr {
-      border: 1px solid black;
-      margin-bottom: 2px;
-      display: flex;
-      border-radius: 20px;
-      width: auto;
-      height: auto;
-      padding: 10px;
-      font-size: 26px;
-      background-color: #fff;
-      position: relative;
-      justify-content: space-between
-    }
-    table tbody tr td a{
-      color: #000;
-      text-decoration:none;
-    }
-    table tbody tr td input{
-      border: 0;
-      background-color: #fff;
-    }
-    </style>
     <% Random ran = new Random();
       int index = ran.nextInt(10000);
       request.getSession().setAttribute("index", index);

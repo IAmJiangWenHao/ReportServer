@@ -1,12 +1,3 @@
-<%@page import="com.report.javabeans.User"%>
-<%@page contentType="text/html" pageEncoding="UTF-8"%>
-<%
-  response.setHeader("Pragma", "no-cache");
-  response.addHeader("Cache-Control", "must-revalidate");
-  response.addHeader("Cache-Control", "no-cache");
-  response.addHeader("Cache-Control", "no-store");
-  response.setDateHeader("Expires", 0);
-%>
 <!DOCTYPE html>
 <html>
 
@@ -21,7 +12,7 @@
       height: 100%;
       width: 100%;
       position: absolute;
-      background-image: url('./img/gzdx-bg.jpg');
+      background-image: url('./web/img/gzdx-bg.jpg');
       background-size: cover;
       background-position: center;
 
@@ -56,7 +47,7 @@
       text-decoration:none;
     }
     table tbody tr td input{
-      border: 1;
+      border: 0;
       background-color: #fff;
     }
   </style>
@@ -132,20 +123,7 @@
           </tr>
       </table>
     </form>
-      <div style="color: red">${requestScope.login_error}</div>
-      <div style="color: red">${requestScope.checkcode_error}</div>      
     </div>
-    <%
-      User user = (User) session.getAttribute("user");
-      if (user != null) {
-        if (user.getRole().equals("student") && user.getEmail() != null) {
-          response.sendRedirect("stduents.jsp");
-        }
-        if (user.getRole().equals("teacher") && user.getEmail() != null) {
-          response.sendRedirect("teacher/teacher.jsp");
-        }
-      }
-    %>
 </body>
 
 </html>

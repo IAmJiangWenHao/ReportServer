@@ -21,7 +21,7 @@
       height: 100%;
       width: 100%;
       position: absolute;
-      background-image: url('./img/gzdx-bg.jpg');
+      background-image: url('./web/img/gzdx-bg.jpg');
       background-size: cover;
       background-position: center;
 
@@ -56,7 +56,7 @@
       text-decoration:none;
     }
     table tbody tr td input{
-      border: 1;
+      border: 0;
       background-color: #fff;
     }
   </style>
