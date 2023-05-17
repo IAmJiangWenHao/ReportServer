@@ -46,10 +46,6 @@
       position: relative;
       justify-content: space-between;
     }
-    form .hang #new{
-      display: flex;
-    flex-direction: column;
-    }
     form .hang a{
       color: #000;
       text-decoration:none;
@@ -58,7 +54,6 @@
       border: 1;
       background-color: #fff;
     }
-
     </style>
     <% Random ran = new Random();
       int index = ran.nextInt(10000);
