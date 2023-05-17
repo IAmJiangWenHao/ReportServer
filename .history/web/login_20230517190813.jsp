@@ -110,9 +110,7 @@
 
         <tr>
           <td>用户名</td>
-          <td><input style="width:150px;height:30px;" type="text" name="username" size="20">
-            <div style="color: red">${requestScope.login_error}</div>
-            <div style="color: red">${requestScope.checkcode_error}</div>     </td>
+          <td><input style="width:150px;height:30px;" type="text" name="username" size="20"></td>
         </tr>
         <tr>
           <td>密&nbsp;&nbsp;码</td>
@@ -131,6 +129,10 @@
             <td>
               <font><a href="forgetPassword.jsp">忘记密码 </a> </font>
             </td>
+          </tr>
+          <tr>
+            <div style="color: red">${requestScope.login_error}</div>
+            <div style="color: red">${requestScope.checkcode_error}</div>      
           </tr>
       </table>
     </form>
