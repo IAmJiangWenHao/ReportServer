@@ -23,8 +23,6 @@
     }
 
     form {
-      box-shadow: 0 0 2px 2px rgba(30, 30, 4, 0.1);
-
       height: 100%;
       display: flex;
       flex-direction: column;

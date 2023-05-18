@@ -34,10 +34,6 @@
       justify-content: center;
       align-items: center;
     }
-     table tbody{
-      box-shadow: 0 0 2px 2px rgba(30, 30, 4, 0.1);
-
-    }
 
 
     table tbody:hover{
