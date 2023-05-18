@@ -17,4 +17,21 @@
     <welcome-file-list>
         <welcome-file>login.jsp</welcome-file>
     </welcome-file-list>
+    
+<!--    <servlet>
+        <servlet-name>msSQLtest</servlet-name>
+        <servlet-class>msSQLtest</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>msSQLtest</servlet-name>
+        <url-pattern>/msSQLtest</url-pattern>
+    </servlet-mapping>-->
+        <servlet>
+        <servlet-name>teacher_jsp</servlet-name>
+        <jsp-file>/teacher.jsp</jsp-file>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>teacher_jsp</servlet-name>
+        <url-pattern>/teacher.jsp</url-pattern>
+    </servlet-mapping>
 </web-app>

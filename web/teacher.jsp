@@ -1,4 +1,4 @@
-<%@page import="com.report.javabeans.Course"%>
+<%@page import="com.report.javabeans.ExpClass"%>
 <%@page import="com.report.javabeans.Project"%>
 <%@page import="com.report.javabeans.User"%>
 <%@page import="java.util.ArrayList"%>
@@ -72,11 +72,11 @@
             //显示实验项目状态提示信息
             cell.innerHTML = "&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;";
             if (this.value === "open")
-              cell.innerHTML += "<img style=\"vertical-align: middle;height:20px;width:20px\" src=\"../img/check.jpg\"/>已经开放";
+              cell.innerHTML += "<img style=\"vertical-align: middle;height:20px;width:20px\" src=\"./img/check.jpg\"/>已经开放";
             if (this.value === "close")
-              cell.innerHTML += "<img style=\"vertical-align: middle;height:20px;width:20px\" src=\"../img/undone.jpg\"/>未开始";
+              cell.innerHTML += "<img style=\"vertical-align: middle;height:20px;width:20px\" src=\"./img/undone.jpg\"/>未开始";
             if (this.value === "deadline")
-              cell.innerHTML += "<img style=\"vertical-align: middle;height:20px;width:20px\" src=\"../img/deadline.png\"/>已截止";
+              cell.innerHTML += "<img style=\"vertical-align: middle;height:20px;width:20px\" src=\"./img/deadline.png\"/>已截止";
             //1.创建请求对象
             const xhr = new XMLHttpRequest();
             //2.设置请求行，这里用post(get请求数据写在url后面)
@@ -171,7 +171,7 @@
       {
         for (var i = 0; i < document.form1.elements.length - 1; i++)
         {
-          if (document.form1.elements[i].value == "")
+          if (document.form1.elements[i].value === "")
           {
             alert("不可空！");
             document.form1.elements[i].focus();

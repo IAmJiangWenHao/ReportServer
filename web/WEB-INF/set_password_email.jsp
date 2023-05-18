@@ -1,7 +1,3 @@
-<%-- 
-    Document   : set_password_email
---%>
-
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <%response.setContentType("text/html;charset=UTF-8");
   response.setHeader("Pragma", "no-cache");
@@ -99,7 +95,7 @@
         //1.创建请求对象
         const xhr = new XMLHttpRequest();
         //2.设置请求方法和URL
-        xhr.open("post", "/WebApp_report/EmailCheckcodeServlet?email=" + email.value, true);
+        xhr.open("post", "/Report_load_system/EmailCheckcodeServlet?email=" + email.value, true);
         //3.发送
         xhr.send();
         //4. 绑定事件 处理服务端返回的结果
@@ -123,7 +119,7 @@
       };
 
       //修改按钮，控制验证码重新获取
-      var time0 = 20;
+      var time0 = 30;
       var time = time0;
       var t;  // 验证按钮的20s计时
       //修改按钮，控制验证码重新获取

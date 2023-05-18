@@ -1,3 +1,9 @@
+<%-- 
+    Document   : error
+    Created on : 2023-5-17, 20:01:13
+    Author     : ghost-windows
+--%>
+
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
@@ -6,11 +12,6 @@
         <title>JSP Page</title>
     </head>
     <body>
-    
-        <script>
-            if(1)//第一次登录
-                response.sendRedirect("set_password_email.jsp");
-        </script>
-        
+        <h1>出错</h1>
     </body>
 </html>
