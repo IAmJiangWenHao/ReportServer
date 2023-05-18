@@ -74,9 +74,9 @@
             if (this.value === "open")
               cell.innerHTML += "<img style=\"vertical-align: middle;height:20px;width:20px\" src=\"./img/check.jpg\"/>已经开放";
             if (this.value === "close")
-              cell.innerHTML += "<img style=\"vertical-align: middle;height:20px;width:20px\" src=\"./img/undone.jpg\"/>未开始";
+              cell.innerHTML += "<img style=\"vertical-align: middle;height:20px;width:20px\" src=\"./img/undone.png\"/>未开始";
             if (this.value === "deadline")
-              cell.innerHTML += "<img style=\"vertical-align: middle;height:20px;width:20px\" src=\"./img/deadline.png\"/>已截止";
+              cell.innerHTML += "<img style=\"vertical-align: middle;height:20px;width:20px\" src=\"./img/deadline.jpg\"/>已截止";
             //1.创建请求对象
             const xhr = new XMLHttpRequest();
             //2.设置请求行，这里用post(get请求数据写在url后面)
@@ -133,7 +133,7 @@
           // alert(fileend);
           if (type && type.length > 0) {
             //alert(fileend.indexOf(type));
-            if (fileend.indexOf(type) < 0) {
+            if (fileend !== ".pdf") {
               alert("不接受此文件类型！");
               target.value = "";
               return false;
@@ -193,7 +193,7 @@
     <div style=" width: 800px;height:800px;position: absolute;top: 10%;left: 30%;">
       <h1><font color="blue"> 实验管理</font><font style="font-size:15px;color:red">&nbsp;&nbsp;&nbsp;&nbsp; <a href="../exit">安全退出</a></font></h1>  
       <p>
-        <img style="vertical-align: middle;height:20px" alt="" width="20" src="../img/new.png"/>                
+        <img style="vertical-align: middle;height:20px" alt="" width="20" src="./img/new.jpg"/>                
         <input type="button" value="创建课程" onclick="createCourse()">
       <div id="createCourse">
 
