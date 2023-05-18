@@ -19,22 +19,23 @@
       height: 100%;
       width: 100%;
       position: absolute;
-      background-image: url('./img/gzdx-bg.jpg');
-      background-size: cover;
-      background-position: center;
 
     }
 
     form {
       height: 100%;
       display: flex;
-      justify-content: center;
-      align-items: center;
       flex-direction: column;
+
+
+    }
+    form:hover{
+      box-shadow: 0 0 10px 5px rgba(30, 30, 4, 0.3);
     }
 
     form .hang {
-      border: 1px solid black;
+      /* border: 1px solid black; */
+      width: 100%;
       margin-bottom: 2px;
       display: flex;
       border-radius: 20px;
@@ -50,13 +51,31 @@
       display: flex;
     flex-direction: column;
     }
+    form .key{
+      flex-shrink: 0;
+    }
     form .hang a{
       color: #000;
       text-decoration:none;
     }
     form .hang input{
-      border: 1;
+      border: 0;
       background-color: #fff;
+      width: 100%;
+    height: 100%;
+    }
+    form .hang input:hover{
+      box-shadow: 0 0 10px 5px rgba(30, 30, 4, 0.3);
+
+    }
+    form .hang .input{
+      width: 100%;
+    }
+    form .hang #button{
+      border: 0;
+      box-shadow: 0 ;
+      width: auto;
+    height: auto;
     }
 
     </style>
@@ -64,18 +83,22 @@
       int index = ran.nextInt(10000);
       request.getSession().setAttribute("index", index);
     %>
-    <div class="mybody" style="width: 500px;height:300px;position:absolute;top:10%;left:30%;">
+    <div class="mybody">
+    <div  style="      display: flex;
+    justify-content: center;
+    align-items: center;">
       <form action="forgetPass.do" method="post" name="form1" onSubmit="return Check()">
         
-        <div class="hang">用户名 <div id="old"><input type="text" name="username" ></div></div>
-        <div class="hang">预留的邮箱 <div id="email"><input type="text" name="email" onblur=isEmail(this.value)> <input type="button" id="button" value="获取验证码"></div></div>
-        <div class="hang">验证码<div id="emailcode"><input type="text" name="emailCheckcode"  placeholder="输入邮箱中收到的验证码"/></div></div>
-        <div class="hang">新密码 <div id="new"><input type="password" id="idnewpass" name="newpass" ><div id="info_newpass" style="color: #ff0000;display:inline;"></div></div></div>
-        <div class="hang">确认新密码 <div id="comfirm"><input type="password" id="idconfirmpass" name="confirmpass"></div>
+        <div class="hang"><div class="key">用户名</div> <div class="input" id="old"><input type="text" name="username" ></div></div>
+        <div class="hang"><div class="key">预留的邮箱</div> <div  class="input" id="email"><input style="width: 76%;" type="text" name="email" onblur=isEmail(this.value)> <input style="height: 100%;" type="button" id="button" value="获取验证码"></div></div>
+        <div class="hang"><div class="key">验证码</div><div  class="input" id="emailcode"><input type="text" name="emailCheckcode"  placeholder="输入邮箱中收到的验证码"/></div></div>
+        <div class="hang"><div  class="key">新密码</div> <div  class="input" id="new"><input style="height:34.4px" type="password" id="idnewpass" name="newpass" ><div id="info_newpass" style="color: #ff0000;display:inline;"></div></div></div>
+        <div class="hang"><div class="key">确认新密码</div> <div  class="input" id="comfirm"><input type="password" id="idconfirmpass" name="confirmpass"></div>
 <input type="hidden" name="index" value="${index}"/></div>
-        <div class="hang"><p style="display: flex;margin:0"><input type="submit" id="submit" value="提交"></div>
+        <div class="hang"><p style="display: flex;margin:0;"><input style="font-size: 26px;" type="submit" id="submit" value="提交"></div>
       </form>
     </div>
+  </div>
     <script>
       //const newpass = document.getElementsByTagName("input")[1];
       const email = document.getElementsByTagName("input")[1];

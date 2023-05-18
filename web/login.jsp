@@ -21,9 +21,6 @@
       height: 100%;
       width: 100%;
       position: absolute;
-      background-image: url('./img/gzdx-bg.jpg');
-      background-size: cover;
-      background-position: center;
 
     }
 
@@ -38,9 +35,12 @@
       align-items: center;
     }
 
+
+    table tbody:hover{
+      box-shadow: 0 0 10px 5px rgba(30, 30, 4, 0.3);
+    }
+
     table tbody tr {
-      border: 1px solid black;
-      margin-bottom: 2px;
       display: flex;
       border-radius: 20px;
       width: auto;
@@ -55,9 +55,16 @@
       color: #000;
       text-decoration:none;
     }
+    table tbody tr td a:hover{
+      box-shadow: 0 0 10px 5px rgba(30, 30, 4, 0.3);
+    }
     table tbody tr td input{
-      border: 1;
+      border: 0;
       background-color: #fff;
+    }
+    table tbody tr td input:hover{
+      border: 0;
+      box-shadow: 0 0 10px 5px rgba(30, 30, 4, 0.3);
     }
   </style>
 
@@ -110,23 +117,23 @@
 
         <tr>
           <td>用户名</td>
-          <td><input style="width:150px;height:30px;" type="text" name="username" size="20">
+          <td><input style="width:100%;height:30px;" type="text" name="username" size="20">
             <div style="color: red">${requestScope.login_error}</div>
             <div style="color: red">${requestScope.checkcode_error}</div>     </td>
         </tr>
         <tr>
           <td>密&nbsp;&nbsp;码</td>
-          <td><input style="width: 150px;height:30px;" type="password" name="password" size="20"></td>
+          <td><input style="width: 412px;height:30px;" type="password" name="password" size="20"></td>
         </tr>
         <tr>
-          <td>验证码</td>
-          <td><input style="width: 100px;height:30px;" type="text" name="checkcode" size="15">
+          <td >验证码</td>
+          <td style="display:flex; flex-direction: column"><input style="width: 412px;height:30px;" type="text" name="checkcode" size="15">
             <img style="width:150px;height:32px;" id="img" src="CheckcodeServlet" alt="[验证码待续]" align="center">
             <!-- id为img的页面元素,显示验证码图像；src="CheckcodeServlet"中，CheckcodeServlet待后续实现-->
           </td>
         </tr>
           <tr>
-            <td><input style="font-size: 26px" type="submit" value="登录">
+            <td><input style="font-size: 26px;" type="submit" value="登录">
             </td>
             <td>
               <font><a href="forgetPassword.jsp">忘记密码 </a> </font>
@@ -140,13 +147,11 @@
       User user = (User) session.getAttribute("user");
       if (user != null) {
         if (user.getRole().equals("student") && user.getEmail() != null) {
-          response.sendRedirect("stduents.jsp");
+          response.sendRedirect("students.jsp");
         }
-        else if (user.getRole().equals("teacher") && user.getEmail() != null) {
-          response.sendRedirect("teacher.jsp");
+        if (user.getRole().equals("teacher") && user.getEmail() != null) {
+          response.sendRedirect("teacher/teacher.jsp");
         }
-        else
-            response.sendRedirect("login.jsp");
       }
     %>
 </body>
