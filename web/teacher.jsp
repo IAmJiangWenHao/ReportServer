@@ -133,8 +133,8 @@
           // alert(fileend);
           if (type && type.length > 0) {
             //alert(fileend.indexOf(type));
-            if (fileend !== ".pdf") {
-              alert("不接受此文件类型！");
+            if (fileend !== ".xlsx") {
+              alert("只接受xlsx类型的文件！");
               target.value = "";
               return false;
             }
