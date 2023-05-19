@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app version="3.1" xmlns="http://xmlns.jcp.org/xml/ns/javaee" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-app_3_1.xsd">
+    
+    <!--开始的界面入口，即运行时第一个打开下面的代码页面-->
+    <welcome-file-list>
+        <welcome-file>login.jsp</welcome-file>
+    </welcome-file-list>
+<!--        <servlet>
+        <servlet-name>LoginServlet</servlet-name>
+        <servlet-class>LoginServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>LoginServlet</servlet-name>
+        <url-pattern>/LoginServlet</url-pattern>
+    </servlet-mapping>-->
+    <session-config>
+        <session-timeout>
+            30
+        </session-timeout>
+    </session-config>
+<!--    <servlet>
+        <servlet-name>msSQLtest</servlet-name>
+        <servlet-class>msSQLtest</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>msSQLtest</servlet-name>
+        <url-pattern>/msSQLtest</url-pattern>
+    </servlet-mapping>-->
+        <servlet>
+        <servlet-name>teacher</servlet-name>
+        <jsp-file>/teacher.jsp</jsp-file>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>teacher</servlet-name>
+        <url-pattern>/teacher.jsp</url-pattern>
+    </servlet-mapping>
+    
+<!--    <servlet>
+        <servlet-name>uploadCourseServlet</servlet-name>
+        <jsp-file>/uploadCourseServlet</jsp-file>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>uploadCourseServlet</servlet-name>
+        <url-pattern>/uploadCourseServlet</url-pattern>
+    </servlet-mapping>-->
+</web-app>
