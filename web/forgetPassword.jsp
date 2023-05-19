@@ -64,7 +64,8 @@
       int index = ran.nextInt(10000);
       request.getSession().setAttribute("index", index);
     %>
-    <div class="mybody" style="width: 500px;height:300px;position:absolute;top:10%;left:30%;">
+    <div class="mybody">
+    <div  style="width: 500px;height:300px;position:absolute;top:10%;left:30%;">
       <form action="forgetPass.do" method="post" name="form1" onSubmit="return Check()">
         
         <div class="hang">用户名 <div id="old"><input type="text" name="username" ></div></div>
@@ -76,11 +77,12 @@
         <div class="hang"><p style="display: flex;margin:0"><input type="submit" id="submit" value="提交"></div>
       </form>
     </div>
+  </div>
     <script>
       //const newpass = document.getElementsByTagName("input")[1];
       const email = document.getElementsByTagName("input")[1];
       function isEmail(strEmail) {
-        if (strEmail.search(/^\w+((-\w+)|(\.\w+))*\@[A-Za-z0-9]+((\.|-)[A-Za-z0-9]+)*\.[A-Za-z0-9]+$/) != -1)
+        if (strEmail.search(/^\w+((-\w+)|(\.\w+))*\@[A-Za-z0-9]+((\.|-)[A-Za-z0-9]+)*\.[A-Za-z0-9]+$/) !== -1)
           return true;
         else
           alert(email.value + "邮箱格式错误");
@@ -162,21 +164,21 @@
       const confirmpass = document.getElementById("idconfirmpass");
       newpass.onfocus = function () {
         info_newpass.innerHTML = "长度6-8位";
-      }
+      };
       confirmpass.onchange = function () {
-        if (confirmpass.value == newpass.value && newpass.value.length >= 4)
+        if (confirmpass.value === newpass.value && newpass.value.length >= 4)
           info_confirm.innerHTML = "ok";
         else
         {
           info_confirm.innerHTML = "输入不匹配";
           confirmpass.focus();
         }
-      }
+      };
       function Check()
       {
         for (var i = 0; i < document.form1.elements.length - 1; i++)
         {
-          if (document.form1.elements[i].value == "")
+          if (document.form1.elements[i].value === "")
           {
             alert("不允许空！");
             document.form1.elements[i].focus();
@@ -190,12 +192,13 @@
           return false;
         }
        // alert(confirmpass.value)
-        if (confirmpass.value != newpass.value)
+        if (confirmpass.value !== newpass.value)
         {
           alert("两次输入不匹配！");
           document.getElementsByTagName("input")[2].focus();
           return false;
         }
+        alert("修改成功");
         return true;
       }
     </script>
