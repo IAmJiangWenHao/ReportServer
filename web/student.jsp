@@ -22,15 +22,63 @@
   %>
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-    <title>实验上传系统 </title>    
+    <title >实验上传系统 </title>    
   </head>
-  <body>      
-    <div style=" width: 800px;height:800px;position:absolute;top:5%;left:20%;">
-      <h1 style="padding-left:100px;display:inline-block"><font color="blue">实验报告上传</font></h1> 
-      <div style="display:inline-block">--xxx</div> 
-      <div style="display:inline-block"> 
-        <font style="font-size:15px;color:red">&nbsp;&nbsp;&nbsp;&nbsp; 
-        <a href="exit.jsp">安全退出</a></font></div> 
+  <body>
+    <style>
+            .topbar-item{
+        padding: 10px; 
+        border-right: 1px solid white;
+        cursor:hand;
+        background-color: rgba(240, 240, 240, 1)
+      }
+      .topbar-item:hover{
+        background-color: gainsboro
+
+
+      }
+      #course1{
+        padding: 10px;
+        box-shadow: 0 0 2px 2px rgba(30, 30, 4, 0.1);
+      }
+      #course1:hover{
+        box-shadow: 0 0 2px 2px rgba(30, 30, 4, 0.3);
+      }
+      #course1 tbody tr {
+      display: flex;
+      border-radius: 20px;
+      width: auto;
+      height: auto;
+      padding: 10px;
+      font-size: 26px;
+      background-color: #fff;
+      position: relative;
+      justify-content: flex-start
+    }
+    #course1 tbody tr td a{
+      color: #000;
+      text-decoration:none;
+    }
+    #course1 tbody tr td a:hover{
+      box-shadow: 0 0 10px 5px rgba(30, 30, 4, 0.3);
+    }
+    #course1 tbody tr td input{
+      border: 0;
+      height: 100%;
+      background-color: #fff;
+    }
+    #course1 tbody tr td input:hover{
+      border: 0;
+      box-shadow: 0 0 10px 5px rgba(30, 30, 4, 0.3);
+    }
+    </style>
+    <div style="display:flex;font-size: 26px;background-color: buttonface;">
+      <div class="topbar-item" color="black"> 实验报告上传</div>
+      <div class="topbar-item"><a style="color: black;text-decoration:none;" href="exit.jsp">安全退出</a></div>
+    </div>  
+    <div style="display: flex; flex-direction:column;align-items: center;">
+      <div >--xxx</div> 
+
       <!-- 课程 -->
       
         <div id="course1">
@@ -38,7 +86,7 @@
           <!-- 实验项目 -->
                     
             <div id="project11">
-              <b><div id="prj" style="height:40px;width:200px;display:inline-block;padding-left:15px">顺序图设计</div></b>
+              <b><div id="prj" style="height:40px;width:200px;display:inline-block;">顺序图设计</div></b>
               <div style="display:inline-block;padding-left:10px" id="prj11">
                 <div id="result" style="width:100px;display:inline-block;">
                   
@@ -56,7 +104,7 @@
             </div> 
                     
             <div id="project12">
-              <b><div id="prj" style="height:40px;width:200px;display:inline-block;padding-left:15px">状态图和活动图设计</div></b>
+              <b><div id="prj" style="height:40px;width:200px;display:inline-block;">状态图和活动图设计</div></b>
               <div style="display:inline-block;padding-left:10px" id="prj12">
                 <div id="result" style="width:100px;display:inline-block;">
                   
@@ -74,7 +122,7 @@
             </div> 
                     
             <div id="project13">
-              <b><div id="prj" style="height:40px;width:200px;display:inline-block;padding-left:15px">构件图和部署图设计</div></b>
+              <b><div id="prj" style="height:40px;width:200px;display:inline-block;">构件图和部署图设计</div></b>
               <div style="display:inline-block;padding-left:10px" id="prj13">
                 <div id="result" style="width:100px;display:inline-block;">
                   
@@ -92,7 +140,7 @@
             </div> 
                     
             <div id="project14">
-              <b><div id="prj" style="height:40px;width:200px;display:inline-block;padding-left:15px">数据建模与正逆向工程</div></b>
+              <b><div id="prj" style="height:40px;width:200px;display:inline-block;">数据建模与正逆向工程</div></b>
               <div style="display:inline-block;padding-left:10px" id="prj14">
                 <div id="result" style="width:100px;display:inline-block;">
                   
@@ -110,7 +158,7 @@
             </div> 
                     
             <div id="project15">
-              <b><div id="prj" style="height:40px;width:200px;display:inline-block;padding-left:15px">系统建模与实现</div></b>
+              <b><div id="prj" style="height:40px;width:200px;display:inline-block;">系统建模与实现</div></b>
               <div style="display:inline-block;padding-left:10px" id="prj15">
                 <div id="result" style="width:100px;display:inline-block;">
                   
@@ -129,7 +177,7 @@
           
         </div>
       
-      <div style=" width: 800px;height:80px;position:absolute;bottom:15%">
+      <div>
         <hr><p align="center"><font color="blue">
     版权 ©2023  信息科学系.</font>
 <br>邮箱地址: report_load@163.com
