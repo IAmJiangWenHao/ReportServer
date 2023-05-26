@@ -27,24 +27,30 @@
   <body>      
     <div style=" width: 800px;height:800px;position:absolute;top:5%;left:20%;">
       <h1 style="padding-left:100px;display:inline-block"><font color="blue">实验报告上传</font></h1> 
-      <div style="display:inline-block">--xxx</div> 
+      <br>
+      <div style="display:inline-block">${sessionScope.user.fullname}好，欢迎登录</div><br>
+      <div style="display:inline-block">用户名为：${sessionScope.user.username}</div><br>
+        <div style="display:inline-block">邮  箱为：${sessionScope.user.email}</div><br>
+
       <div style="display:inline-block"> 
         <font style="font-size:15px;color:red">&nbsp;&nbsp;&nbsp;&nbsp; 
-        <a href="exit">安全退出</a></font></div> 
+        <a href="exit.jsp">安全退出</a></font></div> 
       <!-- 课程 -->
       
         <div id="course1">
-          <h3 style="display:inline-block"><div id="">面向对象系统分析与设计实验202</div> </h3>             
+          <h3 style="display:inline-block"><div id="">${xxxx}</div> </h3>             
           <!-- 实验项目 -->
-                    
-            <div id="project11">
-              <b><div id="prj" style="height:40px;width:200px;display:inline-block;padding-left:15px">顺序图设计</div></b>
+          
+          <!-- 遍历输出所有实验项目 -->         
+            
+          
+            <div id="${xxx}">
+              <b><div id="prj" style="height:40px;width:200px;display:inline-block;padding-left:15px">${xxx}</div></b>
               <div style="display:inline-block;padding-left:10px" id="prj11">
                 <div id="result" style="width:100px;display:inline-block;">
                   
-                    <img style="vertical-align:bottom" height="20px;" width="20px" src="img/undone.jpg">
+                    <img style="vertical-align:bottom" height="20px;" width="20px" src="img/undone.png">
                     <font color="#FF0000">未上传&nbsp;</font>
-                  
                 </div>
                 &nbsp;&nbsp;
                 <input type="file" id="file11" style="width:140px;" onchange="fileChange(this);">
@@ -54,79 +60,6 @@
                 </div>                
               </div>                   
             </div> 
-                    
-            <div id="project12">
-              <b><div id="prj" style="height:40px;width:200px;display:inline-block;padding-left:15px">状态图和活动图设计</div></b>
-              <div style="display:inline-block;padding-left:10px" id="prj12">
-                <div id="result" style="width:100px;display:inline-block;">
-                  
-                    <img style="vertical-align:bottom" height="20px;" width="20px" src="img/undone.jpg">
-                    <font color="#FF0000">未上传&nbsp;</font>
-                  
-                </div>
-                &nbsp;&nbsp;
-                <input type="file" id="file12" style="width:140px;" onchange="fileChange(this);">
-                <input type="button" id="btn12" value="上传" onclick="upload(this.id)"> 
-                <div id="progress" class="progress" style="display:inline-block;">
-                  <div style="text-align:center" id="step" class="step"> </div>                                    
-                </div>                
-              </div>                   
-            </div> 
-                    
-            <div id="project13">
-              <b><div id="prj" style="height:40px;width:200px;display:inline-block;padding-left:15px">构件图和部署图设计</div></b>
-              <div style="display:inline-block;padding-left:10px" id="prj13">
-                <div id="result" style="width:100px;display:inline-block;">
-                  
-                    <img style="vertical-align:bottom" height="20px;" width="20px" src="img/undone.jpg">
-                    <font color="#FF0000">未上传&nbsp;</font>
-                  
-                </div>
-                &nbsp;&nbsp;
-                <input type="file" id="file13" style="width:140px;" onchange="fileChange(this);">
-                <input type="button" id="btn13" value="上传" onclick="upload(this.id)"> 
-                <div id="progress" class="progress" style="display:inline-block;">
-                  <div style="text-align:center" id="step" class="step"> </div>                                    
-                </div>                
-              </div>                   
-            </div> 
-                    
-            <div id="project14">
-              <b><div id="prj" style="height:40px;width:200px;display:inline-block;padding-left:15px">数据建模与正逆向工程</div></b>
-              <div style="display:inline-block;padding-left:10px" id="prj14">
-                <div id="result" style="width:100px;display:inline-block;">
-                  
-                    <img style="vertical-align:bottom" height="20px;" width="20px" src="img/undone.jpg">
-                    <font color="#FF0000">未上传&nbsp;</font>
-                  
-                </div>
-                &nbsp;&nbsp;
-                <input type="file" id="file14" style="width:140px;" onchange="fileChange(this);">
-                <input type="button" id="btn14" value="上传" onclick="upload(this.id)"> 
-                <div id="progress" class="progress" style="display:inline-block;">
-                  <div style="text-align:center" id="step" class="step"> </div>                                    
-                </div>                
-              </div>                   
-            </div> 
-                    
-            <div id="project15">
-              <b><div id="prj" style="height:40px;width:200px;display:inline-block;padding-left:15px">系统建模与实现</div></b>
-              <div style="display:inline-block;padding-left:10px" id="prj15">
-                <div id="result" style="width:100px;display:inline-block;">
-                  
-                    <img style="vertical-align:bottom" height="20px;" width="20px" src="img/undone.jpg">
-                    <font color="#FF0000">未上传&nbsp;</font>
-                  
-                </div>
-                &nbsp;&nbsp;
-                <input type="file" id="file15" style="width:140px;" onchange="fileChange(this);">
-                <input type="button" id="btn15" value="上传" onclick="upload(this.id)"> 
-                <div id="progress" class="progress" style="display:inline-block;">
-                  <div style="text-align:center" id="step" class="step"> </div>                                    
-                </div>                
-              </div>                   
-            </div> 
-          
         </div>
       
       <div style=" width: 800px;height:80px;position:absolute;bottom:15%">
@@ -237,15 +170,15 @@ function openPostWindow(id){
     tempForm.method = "post";
     tempForm.action = getAppPath() + "/browsePDFV1.do";
     //tempForm.target = 'blank';
-    tempForm.download = ""
+    tempForm.download = "";
     //创建标签 <input></input> 标签 然后设定属性，最后追加为 form标签的子标签
     for (let i in data) {
-       alert(key[i],data[i])
-        let hideInput = document.createElement("input")
-        hideInput.type = "hidden"
-        hideInput.name =key[i]
-        hideInput.value = data[i]
-        tempForm.appendChild(hideInput)
+       alert(key[i],data[i]);
+        let hideInput = document.createElement("input");
+        hideInput.type = "hidden";
+        hideInput.name =key[i];
+        hideInput.value = data[i];
+        tempForm.appendChild(hideInput);
     }
     if (document.all) {
       tempForm.attachEvent("onsubmit", function () {
@@ -300,7 +233,7 @@ function upload(id) {
   //1.创建请求对象
   const xhr = new XMLHttpRequest();
   //2.设置请求行(get请求数据写在url后面)
-  xhr.open("post", "/WebApp_report/uploadCourseServlet");//!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+  xhr.open("POST", "/WebApp_report/uploadCourseServlet");//!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
   //upload.do 后端处理上传文件
   //3.设置请求头(get请求可以省略,post不发送数据也可以省略)
   // 如果使用 formData可以不写 请求头 写了 无法正常上传文件
@@ -313,9 +246,11 @@ function upload(id) {
     step.style.width = percent;
     //console.log(step.id);
   };
+  
   //4.请求主体发送(get请求为空，或者写null，post请求数据写在这里，如果没有数据，直接为空或者写null)
   xhr.send(formData);
   //注册回调函数
+  
   xhr.onload = function () {
     console.log(xhr.responseText);
     if (xhr.readyState === 4) {
@@ -336,7 +271,7 @@ function upload(id) {
     }
   };  
 }
-/*
+
 function reload() {
   //1.创建请求对象
   const xhr = new XMLHttpRequest();

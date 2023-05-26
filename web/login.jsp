@@ -151,7 +151,7 @@
       User user = (User) session.getAttribute("user");
       if (user != null) {
         if (user.getRole().equals("student") && user.getEmail() != null) {
-          response.sendRedirect("students.jsp");
+          response.sendRedirect("student.jsp");
         }
         if (user.getRole().equals("teacher") && user.getEmail() != null) {
           response.sendRedirect("teacher.jsp");

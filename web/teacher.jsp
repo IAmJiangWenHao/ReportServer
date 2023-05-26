@@ -6,7 +6,6 @@
 <%@page import="java.util.List"%>
 <%@page import="java.net.URLEncoder"%>
 <%@page import="java.util.Map"%>
-<%@page isELIgnored="false"%>
 <%@page contentType= "text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
@@ -24,13 +23,10 @@
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
     <title>实验上传系统 </title>    
-    
   </head>
-
   <body>
     ${mytag:LoadCourseProject(pageContext.request,pageContext.response)}
     <script>
-
       window.onload = function () {//Ajax实现更新项目状态
         var ratios = document.getElementsByTagName("input");//获取所有input（本页面的input只有单选按钮）
         var map = new Map();//记录单选按钮旧值
@@ -73,7 +69,7 @@
             formData.append("course", course); //课程名
             formData.append("status", this.value);//状态
             var cell = document.getElementById(this.name);
-            //显示实验项目状态提示信息
+            //显示实验项目状态提示信息！！！！！！！！！！！！可移动后面
             cell.innerHTML = "&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;";
             if (this.value === "open")
               cell.innerHTML += "<img style=\"vertical-align: middle;height:20px;width:20px\" src=\"./img/check.jpg\"/>已经开放";
@@ -100,6 +96,7 @@
                 if (xhr.status >= 200 && xhr.status <= 300)
                 { //判断响应码 2XX 表示成功                           
                   console.log(xhr.response.toString());
+                  
                 } else
                   console.log("响应码：" + xhr.status); //状态码
               } else
@@ -126,7 +123,6 @@
       }
     </script>
     <script>
-        session = requests.session () 
       var isIE = /msie/i.test(navigator.userAgent) && !window.opera;
       function fileChange(target, type) {
         var fileSize = 0;
@@ -138,8 +134,8 @@
           // alert(fileend);
           if (type && type.length > 0) {
             //alert(fileend.indexOf(type));
-            if (fileend !== ".xlsx") {
-              alert("只接受xlsx类型的文件！");
+            if (fileend.indexOf(type) < 0) {
+              alert("不接受此文件类型！");
               target.value = "";
               return false;
             }
@@ -193,14 +189,10 @@
       function createCourse() {
         var createCell = document.getElementById("createCourse");
         createCell.innerHTML = "<form action=\"../uploadCourseServlet\" enctype=\"multipart/form-data\" method=\"post\" name=\"form1\" onSubmit=\"return Check()\"><table></tr><tr> <td>建课模板：</td><td><a href=\"实验课模板.xlsx\">下载</a></td></tr><tr><td>课程名：</td><td><input style=\" font-size:16px\" type=\"text\" name=\"courseName\" size=\"20\"/>(例：程序设计实验)</td></tr><tr><td>班级：</td><td><input style=\" font-size:16px\" type=\"text\" name=\"className\" size=\"20\"/>(例:信安201)</td></tr><tr> <td>文件：</td><td><input style=\" font-size:16px\" type=\"file\" name=\"file\" size=\"40\" id=\"fup\" onchange=\'fileChange(this,\".xlsx\");\'/></td><tr><td style=\"height:50px;\" align=\"right\" ><input style=\" font-size:16px\" type=\"submit\" value=\"提交\" size='30'/> </td><td align=\"left\"><input style=\" font-size:16px\" type=\"button\" value=\"关闭\" size='30' onclick=\"cls()\"/> </td></tr></table></form>";
-      };
-              backremove = function(){
-           console.log(hhhhh);
-       };
+      }
     </script>
     <div style=" width: 800px;height:800px;position: absolute;top: 10%;left: 30%;">
       <h1><font color="blue"> 实验管理</font><font style="font-size:15px;color:red">&nbsp;&nbsp;&nbsp;&nbsp; <a href="exit.jsp">安全退出</a></font></h1>  
-      <p>${sessionScope.user.fullname}好，欢迎登录</p>
       <p>
         <img style="vertical-align: middle;height:20px" alt="" width="20" src="./img/new.jpg"/>                
         <input type="button" value="创建课程" onclick="createCourse()">
@@ -208,7 +200,6 @@
 
       </div>
     </p>
-
 
     <c:forEach var="course" items="${sessionScope.courseData}" varStatus="statusCourse">
       <h2> ${course.key}<font style="font-size:15px;color:blue">--${sessionScope.user.fullname}</font></h2><p>
@@ -236,13 +227,13 @@
             </td>
             <td id="${course.key.concat("-").concat(project.projectId)}">&nbsp;&nbsp;&nbsp;&nbsp;
               <c:if test="${project.state==0}" >
-                <img style="vertical-align: middle;height:20px;width:20px" alt="" src="../img/undone.png"/>未开始
+                <img style="vertical-align: middle;height:20px;width:20px" alt="" src="./img/undone.png"/>未开始
               </c:if>
               <c:if test="${project.state==1}" >
-                <img style="vertical-align: middle;height:20px;width:20px" alt="" src="../img/check.jpg"/>已经开放
+                <img style="vertical-align: middle;height:20px;width:20px" alt="" src="./img/check.jpg"/>已经开放
               </c:if>
               <c:if test="${project.state==2}" >
-                <img style="vertical-align: middle;height:20px;width:20px" alt="" src="../img/deadline.png"/>已经截止
+                <img style="vertical-align: middle;height:20px;width:20px" alt="" src="./img/deadline.jpg"/>已经截止
               </c:if>
             </td>
           </tr>
