@@ -1,3 +1,5 @@
+<%@page import="com.report.dbutils.dao.SCDAOImpl"%>
+<%@page import="com.report.dbutils.dao.SCDAO"%>
 <%@page import="com.report.javabeans.ExpClass"%>
 <%@page import="com.report.javabeans.Project"%>
 <%@page import="com.report.javabeans.User"%>
@@ -19,40 +21,101 @@
     response.addHeader("Cache-Control", "no-cache");
     response.addHeader("Cache-Control", "no-store");
     response.setDateHeader("Expires", 0);
+    
+   
+
   %>
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-    <title>实验上传系统 </title>    
+    <title >实验上传系统 </title>    
   </head>
-  <body>      
-    <div style=" width: 800px;height:800px;position:absolute;top:5%;left:20%;">
-      <h1 style="padding-left:100px;display:inline-block"><font color="blue">实验报告上传</font></h1> 
-      <br>
-      <div style="display:inline-block">${sessionScope.user.fullname}好，欢迎登录</div><br>
-      <div style="display:inline-block">用户名为：${sessionScope.user.username}</div><br>
-        <div style="display:inline-block">邮  箱为：${sessionScope.user.email}</div><br>
+  <body>
+    <style>
+            .topbar-item{
+        padding: 10px; 
+        border-right: 1px solid white;
+        cursor:hand;
+        background-color: rgba(240, 240, 240, 1)
+      }
+      .topbar-item:hover{
+        background-color: gainsboro
 
-      <div style="display:inline-block"> 
-        <font style="font-size:15px;color:red">&nbsp;&nbsp;&nbsp;&nbsp; 
-        <a href="exit.jsp">安全退出</a></font></div> 
-      <!-- 课程 -->
-      
-        <div id="course1">
-          <h3 style="display:inline-block"><div id="">${xxxx}</div> </h3>             
-          <!-- 实验项目 -->
-          
-          <!-- 遍历输出所有实验项目 -->         
+
+      }
+      #course1{
+        padding: 10px;
+        box-shadow: 0 0 2px 2px rgba(30, 30, 4, 0.1);
+      }
+      #course1:hover{
+        box-shadow: 0 0 2px 2px rgba(30, 30, 4, 0.3);
+      }
+      #course1 tbody tr {
+      display: flex;
+      border-radius: 20px;
+      width: auto;
+      height: auto;
+      padding: 10px;
+      font-size: 26px;
+      background-color: #fff;
+      position: relative;
+      justify-content: flex-start
+    }
+    #course1 tbody tr td a{
+      color: #000;
+      text-decoration:none;
+    }
+    #course1 tbody tr td a:hover{
+      box-shadow: 0 0 10px 5px rgba(30, 30, 4, 0.3);
+    }
+    #course1 tbody tr td input{
+      border: 0;
+      height: 100%;
+      background-color: #fff;
+    }
+    #course1 tbody tr td input:hover{
+      border: 0;
+      box-shadow: 0 0 10px 5px rgba(30, 30, 4, 0.3);
+    }
+    </style>
+    <div style="display:flex;font-size: 26px;background-color: buttonface;">
+      <div class="topbar-item" color="black"> 实验报告上传</div>
+      <div class="topbar-item"><a style="color: black;text-decoration:none;" href="exit.jsp">安全退出</a></div>
+      <div class="topbar-item"><a style="color: black;text-decoration:none;" href="WEB-INF/set_password_email.jsp">修改密码</a></div>
+
+    </div>  
+    <div style="display: flex; flex-direction:column;align-items: center;">
+      <div >${sessionScope.user.fullname} 好，欢迎登录</div> 
+      <div>id:${sessionScope.user.username}</div>
+      <div>email:${sessionScope.user.email}</div>
+      <div>test:${sessionScope}</div>
             
-          
-            <div id="${xxx}">
-              <b><div id="prj" style="height:40px;width:200px;display:inline-block;padding-left:15px">${xxx}</div></b>
+       <c:forEach var="course" items="${sessionScope.projectData}" varStatus="statusCourse">
+           <h3 style="display:inline-block"><div>${course.key}</div></h3>
+    <table>
+        <c:forEach var="project" items="${course.value}" varStatus="statusProject">
+        <!-- 
+        没有开放上传的不显示？
+        已经开放的，是否已经把文件上传，状态显示
+        关闭上传的怎么显示：显示出来，但是不能修改，不能重新上传？
+        -->  
+            
+            
+        <div id="course1"><!-- id还要修改 -->
+          <h3 style="display:inline-block"><div id="">${course.key}</div> </h3>             
+          <!-- 实验项目 -->
+                    
+            <div id="project11"><!-- id还要修改 -->
+              <b><div id="prj" style="height:40px;width:200px;display:inline-block;">${project.projectId}</div></b><!-- div的id还要修改 -->
               <div style="display:inline-block;padding-left:10px" id="prj11">
                 <div id="result" style="width:100px;display:inline-block;">
                   
-                    <img style="vertical-align:bottom" height="20px;" width="20px" src="img/undone.png">
-                    <font color="#FF0000">未上传&nbsp;</font>
+                    <!--上传状态还需要修改-->
+                    <img style="vertical-align:bottom" height="20px;" width="20px" src="img/upload.jpg">
+                    <font color="#00FF00">已上传&nbsp;</font>
+                  
                 </div>
                 &nbsp;&nbsp;
+                <!-- id还要修改 -->
                 <input type="file" id="file11" style="width:140px;" onchange="fileChange(this);">
                 <input type="button" id="btn11" value="上传" onclick="upload(this.id)"> 
                 <div id="progress" class="progress" style="display:inline-block;">
@@ -61,8 +124,13 @@
               </div>                   
             </div> 
         </div>
-      
-      <div style=" width: 800px;height:80px;position:absolute;bottom:15%">
+                  
+                  
+            
+        </c:forEach>
+    </table>
+    </c:forEach>
+      <div>
         <hr><p align="center"><font color="blue">
     版权 ©2023  信息科学系.</font>
 <br>邮箱地址: report_load@163.com
@@ -70,8 +138,10 @@
       </p></div>
     </div> 
 
+       ${mytag:LoadCourseProject(pageContext.request,pageContext.response)}
       <script>
 var isIE = /msie/i.test(navigator.userAgent) && !window.opera;
+ 
 function fileChange(target) {
   var fileSize = 0;
   var filetypes = [".pdf"];
@@ -233,7 +303,7 @@ function upload(id) {
   //1.创建请求对象
   const xhr = new XMLHttpRequest();
   //2.设置请求行(get请求数据写在url后面)
-  xhr.open("POST", "/WebApp_report/uploadCourseServlet");//!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+  xhr.open("post", "/WebApp_report/uploadCourseServlet");
   //upload.do 后端处理上传文件
   //3.设置请求头(get请求可以省略,post不发送数据也可以省略)
   // 如果使用 formData可以不写 请求头 写了 无法正常上传文件
@@ -246,11 +316,9 @@ function upload(id) {
     step.style.width = percent;
     //console.log(step.id);
   };
-  
   //4.请求主体发送(get请求为空，或者写null，post请求数据写在这里，如果没有数据，直接为空或者写null)
   xhr.send(formData);
   //注册回调函数
-  
   xhr.onload = function () {
     console.log(xhr.responseText);
     if (xhr.readyState === 4) {
