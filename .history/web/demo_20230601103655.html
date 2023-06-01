@@ -42,6 +42,40 @@
 
 
       }
+      #course1{
+        padding: 10px;
+        box-shadow: 0 0 2px 2px rgba(30, 30, 4, 0.1);
+      }
+      #course1:hover{
+        box-shadow: 0 0 2px 2px rgba(30, 30, 4, 0.3);
+      }
+      #course1 tbody tr {
+      display: flex;
+      border-radius: 20px;
+      width: auto;
+      height: auto;
+      padding: 10px;
+      font-size: 26px;
+      background-color: #fff;
+      position: relative;
+      justify-content: flex-start
+    }
+    #course1 tbody tr td a{
+      color: #000;
+      text-decoration:none;
+    }
+    #course1 tbody tr td a:hover{
+      box-shadow: 0 0 10px 5px rgba(30, 30, 4, 0.3);
+    }
+    #course1 tbody tr td input{
+      border: 0;
+      height: 100%;
+      background-color: #fff;
+    }
+    #course1 tbody tr td input:hover{
+      border: 0;
+      box-shadow: 0 0 10px 5px rgba(30, 30, 4, 0.3);
+    }
     </style>
     <div style="display:flex;font-size: 26px;background-color: buttonface;">
       <a href="student.jsp" class="topbar-item" style="color: black;text-decoration:none;"> 实验报告上传</a>
@@ -49,9 +83,8 @@
       <div class="topbar-item"><a style="color: black;text-decoration:none;" href="WEB-INF/set_password_email.jsp">修改密码</a></div>
       <div class="topbar-item"><a style="color: black;text-decoration:none;" href="message.jsp">学生个人中心</a></div>
     </div>  
-    <div style="display: flex; flex-direction:column;align-items: center;font-size: 30px;line-height: 50px;">
-        <div  >${sessionScope.user.fullname}</div> 
-
+    <div style="display: flex; flex-direction:column;align-items: center;">
+      <div >${sessionScope.user.fullname} 好，欢迎登录</div> 
       <div>id:${sessionScope.user.username}</div>
       <div>email:${sessionScope.user.email}</div>
       <div>test:${sessionScope}</div>

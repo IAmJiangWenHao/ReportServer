@@ -14,46 +14,7 @@
   </head>
 
   <body>
-    <style>
-            #course1{
-   
-
-        padding: 10px;
-        box-shadow: 0 0 2px 2px rgba(30, 30, 4, 0.1);
-      }
-      #course1:hover{
-        box-shadow: 0 0 2px 2px rgba(30, 30, 4, 0.3);
-      }
-      #course1 tbody tr {
-      display: flex;
-      border-radius: 20px;
-      width: auto;
-      height: auto;
-      padding: 10px;
-      font-size: 26px;
-      background-color: #fff;
-      position: relative;
-      justify-content: flex-start
-    }
-    #course1 tbody tr td a{
-      color: #000;
-      text-decoration:none;
-    }
-    #course1 tbody tr td a:hover{
-      box-shadow: 0 0 10px 5px rgba(30, 30, 4, 0.3);
-    }
-    #course1 tbody tr td input{
-      border: 0;
-      height: 100%;
-      background-color: #fff;
-    }
-    #course1 tbody tr td input:hover{
-      border: 0;
-      box-shadow: 0 0 10px 5px rgba(30, 30, 4, 0.3);
-    }
-    </style>
-    <div style="              display: flex; flex-direction:column;align-items: center;">
-    <div id="course1">
+    <div style="width: 500px;height:300px;position: absolute;top: 10%;left: 30%;">
       <form action="SetPasswordEmail.do" method="post" name="form1" onSubmit="return Check()">
         原密码 <div id="old"><input type="password" name="oldpass" >${requestScope.password_error}</div>
         新密码 <div id="new"><input type="password" name="newpass" ><div id="info_newpass" style="color: #ff0000;display:inline;"></div></div>
@@ -64,7 +25,6 @@
           <input type="submit" id="submit" value="提交">
       </form>
         <div id="result"></div>
-    </div>
     </div>
     <script>
       const info_newpass = document.getElementById("info_newpass");

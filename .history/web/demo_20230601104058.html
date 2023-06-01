@@ -30,28 +30,17 @@
     <title >学生个人中心 </title>    
   </head>
   <body>
-    <style>
-            .topbar-item{
-        padding: 10px; 
-        border-right: 1px solid white;
-        cursor:hand;
-        background-color: rgba(240, 240, 240, 1)
-      }
-      .topbar-item:hover{
-        background-color: gainsboro
-
-
-      }
-    </style>
     <div style="display:flex;font-size: 26px;background-color: buttonface;">
       <a href="student.jsp" class="topbar-item" style="color: black;text-decoration:none;"> 实验报告上传</a>
       <div class="topbar-item"><a style="color: black;text-decoration:none;" href="exit.jsp">安全退出</a></div>
       <div class="topbar-item"><a style="color: black;text-decoration:none;" href="WEB-INF/set_password_email.jsp">修改密码</a></div>
       <div class="topbar-item"><a style="color: black;text-decoration:none;" href="message.jsp">学生个人中心</a></div>
     </div>  
-    <div style="display: flex; flex-direction:column;align-items: center;font-size: 30px;line-height: 50px;">
-        <div  >${sessionScope.user.fullname}</div> 
-
+    <div style="display: flex; flex-direction:column;align-items: center;">
+      <div style="display: flex; flex-direction:row;">
+        <img style="vertical-align:bottom" height="100px;" width="100px" src="img/upload.jpg">
+        <div >${sessionScope.user.fullname}</div> 
+      </div>
       <div>id:${sessionScope.user.username}</div>
       <div>email:${sessionScope.user.email}</div>
       <div>test:${sessionScope}</div>

@@ -1,4 +1,4 @@
-<!-- <%@page import="com.report.javabeans.ExpClass"%>
+<%@page import="com.report.javabeans.ExpClass"%>
 <%@page import="com.report.javabeans.Project"%>
 <%@page import="com.report.javabeans.User"%>
 <%@page import="java.util.ArrayList"%>
@@ -10,72 +10,25 @@
 <%@page contentType= "text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
-<%@ taglib uri="/tlds/reporttag_library" prefix="mytag" %> -->
+<%@ taglib uri="/tlds/reporttag_library" prefix="mytag" %>
 <!--script type="text/javascript" src="${pageContext.request.contextPath}/script/scriptV1.js?v=1.0"></script-->
 <!DOCTYPE html>
 <html>
-  <!-- <%
+  <%
     response.setHeader("Pragma", "no-cache");
     response.addHeader("Cache-Control", "must-revalidate");
     response.addHeader("Cache-Control", "no-cache");
     response.addHeader("Cache-Control", "no-store");
     response.setDateHeader("Expires", 0);
-  %> -->
+  %>
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
     <title>实验上传系统 </title>    
     
   </head>
 
-  <body style="margin: 0;">
-    <style>
-      .topbar-item{
-        padding: 10px; 
-        border-right: 1px solid white;
-        cursor:hand;
-        background-color: rgba(240, 240, 240, 1)
-      }
-      .topbar-item:hover{
-        background-color: gainsboro
-
-
-      }
-      #createCourse{
-        box-shadow: 0 0 2px 2px rgba(30, 30, 4, 0.1);
-      }
-      #createCourse:hover{
-        box-shadow: 0 0 2px 2px rgba(30, 30, 4, 0.3);
-      }
-      #createCourse tbody tr {
-      display: flex;
-      border-radius: 20px;
-      width: auto;
-      height: auto;
-      padding: 10px;
-      font-size: 26px;
-      background-color: #fff;
-      position: relative;
-      justify-content: flex-start
-    }
-    #createCourse tbody tr td a{
-      color: #000;
-      text-decoration:none;
-    }
-    #createCourse tbody tr td a:hover{
-      box-shadow: 0 0 10px 5px rgba(30, 30, 4, 0.3);
-    }
-    #createCourse tbody tr td input{
-      border: 0;
-      height: 100%;
-      background-color: #fff;
-    }
-    #createCourse tbody tr td input:hover{
-      border: 0;
-      box-shadow: 0 0 10px 5px rgba(30, 30, 4, 0.3);
-    }
-
-    </style>
-    <!-- ${mytag:LoadCourseProject(pageContext.request,pageContext.response)} -->
+  <body>
+    ${mytag:LoadCourseProject(pageContext.request,pageContext.response)}
     <script>
 
       window.onload = function () {//Ajax实现更新项目状态
@@ -239,24 +192,22 @@
 
       function createCourse() {
         var createCell = document.getElementById("createCourse");
-        createCell.innerHTML = "<form action=\"../uploadCourseServlet\" enctype=\"multipart/form-data\" method=\"post\" name=\"form1\" onSubmit=\"return Check()\"><table></tr><tr> <td>建课模板：</td><td><a style=\"text-decoration:none;color:black;\" href=\"实验课模板.xlsx\">下载</a></td></tr><tr><td>课程名：</td><td><input style=\" font-size:16px\" type=\"text\" name=\"courseName\" size=\"20\"/>(例：程序设计实验)</td></tr><tr><td style=\"margin-right: 26px;\">班级：</td><td><input style=\" font-size:16px\" type=\"text\" name=\"className\" size=\"20\"/>(例:信安201)</td></tr><tr> <td>文件：</td><td style=\"width:79px;height:26px\"><input style=\"width:79px; font-size:16px\" type=\"file\" name=\"file\" size=\"40\" id=\"fup\" onchange=\'fileChange(this,\".xlsx\");\'/></td><tr><td style=\"height:50px;\" align=\"right\" ><input style=\"margin-right:10px; font-size:16px\" type=\"submit\" value=\"提交\" size='30'/> </td><td align=\"left\"><input style=\" font-size:16px\" type=\"button\" value=\"关闭\" size='30' onclick=\"cls()\"/> </td></tr></table></form>";
+        createCell.innerHTML = "<form action=\"../uploadCourseServlet\" enctype=\"multipart/form-data\" method=\"post\" name=\"form1\" onSubmit=\"return Check()\"><table></tr><tr> <td>建课模板：</td><td><a href=\"实验课模板.xlsx\">下载</a></td></tr><tr><td>课程名：</td><td><input style=\" font-size:16px\" type=\"text\" name=\"courseName\" size=\"20\"/>(例：程序设计实验)</td></tr><tr><td>班级：</td><td><input style=\" font-size:16px\" type=\"text\" name=\"className\" size=\"20\"/>(例:信安201)</td></tr><tr> <td>文件：</td><td><input style=\" font-size:16px\" type=\"file\" name=\"file\" size=\"40\" id=\"fup\" onchange=\'fileChange(this,\".xlsx\");\'/></td><tr><td style=\"height:50px;\" align=\"right\" ><input style=\" font-size:16px\" type=\"submit\" value=\"提交\" size='30'/> </td><td align=\"left\"><input style=\" font-size:16px\" type=\"button\" value=\"关闭\" size='30' onclick=\"cls()\"/> </td></tr></table></form>";
       };
               backremove = function(){
            console.log(hhhhh);
        };
     </script>
-    <div >
-      <div style="display:flex;font-size: 26px;background-color: buttonface;">
-        <a href="teacher.jsp" class="topbar-item" style="color: black;text-decoration:none;"> 实验管理</a>
-        <div class="topbar-item"><a style="color: black;text-decoration:none;" href="exit.jsp">安全退出</a></div>
-        <div class="topbar-item" onclick="createCourse()">创建课程</div></div>  
-<div style="display: flex;flex-direction:column;align-items:center">
-  <p>${sessionScope.user.fullname}好，欢迎登录</p>
-  <p>            
-  <div id="createCourse">
-  </div>
-</p>
+    <div style=" width: 800px;height:800px;position: absolute;top: 10%;left: 30%;">
+      <h1><font color="blue"> 实验管理</font><font style="font-size:15px;color:red">&nbsp;&nbsp;&nbsp;&nbsp; <a href="exit.jsp">安全退出</a></font></h1>  
+      <p>${sessionScope.user.fullname}好，欢迎登录</p>
+      <p>
+        <img style="vertical-align: middle;height:20px" alt="" width="20" src="./img/new.jpg"/>                
+        <input type="button" value="创建课程" onclick="createCourse()">
+      <div id="createCourse">
 
+      </div>
+    </p>
 
 
     <c:forEach var="course" items="${sessionScope.courseData}" varStatus="statusCourse">
@@ -298,7 +249,6 @@
         </c:forEach>
       </table>
     </c:forEach>
-  </div>
   </div>  
 </body>
 </html>

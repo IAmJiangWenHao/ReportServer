@@ -247,7 +247,7 @@
     </script>
     <div >
       <div style="display:flex;font-size: 26px;background-color: buttonface;">
-        <a href="teacher.jsp" class="topbar-item" style="color: black;text-decoration:none;"> 实验管理</a>
+        <div class="topbar-item" color="black"> 实验管理</div>
         <div class="topbar-item"><a style="color: black;text-decoration:none;" href="exit.jsp">安全退出</a></div>
         <div class="topbar-item" onclick="createCourse()">创建课程</div></div>  
 <div style="display: flex;flex-direction:column;align-items:center">

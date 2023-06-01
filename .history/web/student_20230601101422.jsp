@@ -78,10 +78,10 @@
     }
     </style>
     <div style="display:flex;font-size: 26px;background-color: buttonface;">
-      <a href="student.jsp" class="topbar-item" style="color: black;text-decoration:none;"> 实验报告上传</a>
+      <div class="topbar-item" color="black"> 实验报告上传</div>
       <div class="topbar-item"><a style="color: black;text-decoration:none;" href="exit.jsp">安全退出</a></div>
       <div class="topbar-item"><a style="color: black;text-decoration:none;" href="WEB-INF/set_password_email.jsp">修改密码</a></div>
-      <div class="topbar-item"><a style="color: black;text-decoration:none;" href="message.jsp">学生个人中心</a></div>
+
     </div>  
     <div style="display: flex; flex-direction:column;align-items: center;">
       <div >${sessionScope.user.fullname} 好，欢迎登录</div> 
@@ -111,9 +111,10 @@
                   
                     <!--上传状态还需要修改-->
                     <img style="vertical-align:bottom" height="20px;" width="20px" src="img/upload.jpg">
-                    <font color="#00000">已上传</font>
+                    <font color="#00FF00">已上传&nbsp;</font>
                   
                 </div>
+                &nbsp;&nbsp;
                 <!-- id还要修改 -->
                 <input type="file" id="file11" style="width:140px;" onchange="fileChange(this);">
                 <input type="button" id="btn11" value="上传" onclick="upload(this.id)"> 
@@ -129,12 +130,12 @@
         </c:forEach>
     </table>
     </c:forEach>
-      <!-- <div>
-        <hr><p align="center"><font color="black">
-    版权 ©2023  信息科学系</font>
+      <div>
+        <hr><p align="center"><font color="blue">
+    版权 ©2023  信息科学系.</font>
 <br>邮箱地址: report_load@163.com
 
-      </p></div> -->
+      </p></div>
     </div> 
 
        ${mytag:LoadCourseProject(pageContext.request,pageContext.response)}

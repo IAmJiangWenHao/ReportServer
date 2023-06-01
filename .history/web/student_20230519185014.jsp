@@ -1,5 +1,3 @@
-<%@page import="com.report.dbutils.dao.SCDAOImpl"%>
-<%@page import="com.report.dbutils.dao.SCDAO"%>
 <%@page import="com.report.javabeans.ExpClass"%>
 <%@page import="com.report.javabeans.Project"%>
 <%@page import="com.report.javabeans.User"%>
@@ -21,9 +19,6 @@
     response.addHeader("Cache-Control", "no-cache");
     response.addHeader("Cache-Control", "no-store");
     response.setDateHeader("Expires", 0);
-    
-   
-
   %>
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
@@ -78,43 +73,28 @@
     }
     </style>
     <div style="display:flex;font-size: 26px;background-color: buttonface;">
-      <a href="student.jsp" class="topbar-item" style="color: black;text-decoration:none;"> 实验报告上传</a>
+      <div class="topbar-item" color="black"> 实验报告上传</div>
       <div class="topbar-item"><a style="color: black;text-decoration:none;" href="exit.jsp">安全退出</a></div>
-      <div class="topbar-item"><a style="color: black;text-decoration:none;" href="WEB-INF/set_password_email.jsp">修改密码</a></div>
-      <div class="topbar-item"><a style="color: black;text-decoration:none;" href="message.jsp">学生个人中心</a></div>
     </div>  
     <div style="display: flex; flex-direction:column;align-items: center;">
-      <div >${sessionScope.user.fullname} 好，欢迎登录</div> 
-      <div>id:${sessionScope.user.username}</div>
-      <div>email:${sessionScope.user.email}</div>
-      <div>test:${sessionScope}</div>
-            
-       <c:forEach var="course" items="${sessionScope.projectData}" varStatus="statusCourse">
-           <h3 style="display:inline-block"><div>${course.key}</div></h3>
-    <table>
-        <c:forEach var="project" items="${course.value}" varStatus="statusProject">
-        <!-- 
-        没有开放上传的不显示？
-        已经开放的，是否已经把文件上传，状态显示
-        关闭上传的怎么显示：显示出来，但是不能修改，不能重新上传？
-        -->  
-            
-            
-        <div id="course1"><!-- id还要修改 -->
-          <h3 style="display:inline-block"><div id="">${course.key}</div> </h3>             
+      <div >--xxx</div> 
+
+      <!-- 课程 -->
+      
+        <div id="course1">
+          <h3 style="display:inline-block"><div id="">面向对象系统分析与设计实验202</div> </h3>             
           <!-- 实验项目 -->
                     
-            <div id="project11"><!-- id还要修改 -->
-              <b><div id="prj" style="height:40px;width:200px;display:inline-block;">${project.projectId}</div></b><!-- div的id还要修改 -->
+            <div id="project11">
+              <b><div id="prj" style="height:40px;width:200px;display:inline-block;">顺序图设计</div></b>
               <div style="display:inline-block;padding-left:10px" id="prj11">
                 <div id="result" style="width:100px;display:inline-block;">
                   
-                    <!--上传状态还需要修改-->
-                    <img style="vertical-align:bottom" height="20px;" width="20px" src="img/upload.jpg">
-                    <font color="#00000">已上传</font>
+                    <img style="vertical-align:bottom" height="20px;" width="20px" src="img/undone.jpg">
+                    <font color="#FF0000">未上传&nbsp;</font>
                   
                 </div>
-                <!-- id还要修改 -->
+                &nbsp;&nbsp;
                 <input type="file" id="file11" style="width:140px;" onchange="fileChange(this);">
                 <input type="button" id="btn11" value="上传" onclick="upload(this.id)"> 
                 <div id="progress" class="progress" style="display:inline-block;">
@@ -122,25 +102,91 @@
                 </div>                
               </div>                   
             </div> 
+                    
+            <div id="project12">
+              <b><div id="prj" style="height:40px;width:200px;display:inline-block;">状态图和活动图设计</div></b>
+              <div style="display:inline-block;padding-left:10px" id="prj12">
+                <div id="result" style="width:100px;display:inline-block;">
+                  
+                    <img style="vertical-align:bottom" height="20px;" width="20px" src="img/undone.jpg">
+                    <font color="#FF0000">未上传&nbsp;</font>
+                  
+                </div>
+                &nbsp;&nbsp;
+                <input type="file" id="file12" style="width:140px;" onchange="fileChange(this);">
+                <input type="button" id="btn12" value="上传" onclick="upload(this.id)"> 
+                <div id="progress" class="progress" style="display:inline-block;">
+                  <div style="text-align:center" id="step" class="step"> </div>                                    
+                </div>                
+              </div>                   
+            </div> 
+                    
+            <div id="project13">
+              <b><div id="prj" style="height:40px;width:200px;display:inline-block;">构件图和部署图设计</div></b>
+              <div style="display:inline-block;padding-left:10px" id="prj13">
+                <div id="result" style="width:100px;display:inline-block;">
+                  
+                    <img style="vertical-align:bottom" height="20px;" width="20px" src="img/undone.jpg">
+                    <font color="#FF0000">未上传&nbsp;</font>
+                  
+                </div>
+                &nbsp;&nbsp;
+                <input type="file" id="file13" style="width:140px;" onchange="fileChange(this);">
+                <input type="button" id="btn13" value="上传" onclick="upload(this.id)"> 
+                <div id="progress" class="progress" style="display:inline-block;">
+                  <div style="text-align:center" id="step" class="step"> </div>                                    
+                </div>                
+              </div>                   
+            </div> 
+                    
+            <div id="project14">
+              <b><div id="prj" style="height:40px;width:200px;display:inline-block;">数据建模与正逆向工程</div></b>
+              <div style="display:inline-block;padding-left:10px" id="prj14">
+                <div id="result" style="width:100px;display:inline-block;">
+                  
+                    <img style="vertical-align:bottom" height="20px;" width="20px" src="img/undone.jpg">
+                    <font color="#FF0000">未上传&nbsp;</font>
+                  
+                </div>
+                &nbsp;&nbsp;
+                <input type="file" id="file14" style="width:140px;" onchange="fileChange(this);">
+                <input type="button" id="btn14" value="上传" onclick="upload(this.id)"> 
+                <div id="progress" class="progress" style="display:inline-block;">
+                  <div style="text-align:center" id="step" class="step"> </div>                                    
+                </div>                
+              </div>                   
+            </div> 
+                    
+            <div id="project15">
+              <b><div id="prj" style="height:40px;width:200px;display:inline-block;">系统建模与实现</div></b>
+              <div style="display:inline-block;padding-left:10px" id="prj15">
+                <div id="result" style="width:100px;display:inline-block;">
+                  
+                    <img style="vertical-align:bottom" height="20px;" width="20px" src="img/undone.jpg">
+                    <font color="#FF0000">未上传&nbsp;</font>
+                  
+                </div>
+                &nbsp;&nbsp;
+                <input type="file" id="file15" style="width:140px;" onchange="fileChange(this);">
+                <input type="button" id="btn15" value="上传" onclick="upload(this.id)"> 
+                <div id="progress" class="progress" style="display:inline-block;">
+                  <div style="text-align:center" id="step" class="step"> </div>                                    
+                </div>                
+              </div>                   
+            </div> 
+          
         </div>
-                  
-                  
-            
-        </c:forEach>
-    </table>
-    </c:forEach>
-      <!-- <div>
-        <hr><p align="center"><font color="black">
-    版权 ©2023  信息科学系</font>
+      
+      <div>
+        <hr><p align="center"><font color="blue">
+    版权 ©2023  信息科学系.</font>
 <br>邮箱地址: report_load@163.com
 
-      </p></div> -->
+      </p></div>
     </div> 
 
-       ${mytag:LoadCourseProject(pageContext.request,pageContext.response)}
       <script>
 var isIE = /msie/i.test(navigator.userAgent) && !window.opera;
- 
 function fileChange(target) {
   var fileSize = 0;
   var filetypes = [".pdf"];
@@ -239,15 +285,15 @@ function openPostWindow(id){
     tempForm.method = "post";
     tempForm.action = getAppPath() + "/browsePDFV1.do";
     //tempForm.target = 'blank';
-    tempForm.download = "";
+    tempForm.download = ""
     //创建标签 <input></input> 标签 然后设定属性，最后追加为 form标签的子标签
     for (let i in data) {
-       alert(key[i],data[i]);
-        let hideInput = document.createElement("input");
-        hideInput.type = "hidden";
-        hideInput.name =key[i];
-        hideInput.value = data[i];
-        tempForm.appendChild(hideInput);
+       alert(key[i],data[i])
+        let hideInput = document.createElement("input")
+        hideInput.type = "hidden"
+        hideInput.name =key[i]
+        hideInput.value = data[i]
+        tempForm.appendChild(hideInput)
     }
     if (document.all) {
       tempForm.attachEvent("onsubmit", function () {
@@ -302,7 +348,7 @@ function upload(id) {
   //1.创建请求对象
   const xhr = new XMLHttpRequest();
   //2.设置请求行(get请求数据写在url后面)
-  xhr.open("post", "/WebApp_report/uploadCourseServlet");
+  xhr.open("post", "/WebApp_report/uploadCourseServlet");//!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
   //upload.do 后端处理上传文件
   //3.设置请求头(get请求可以省略,post不发送数据也可以省略)
   // 如果使用 formData可以不写 请求头 写了 无法正常上传文件
@@ -338,7 +384,7 @@ function upload(id) {
     }
   };  
 }
-
+/*
 function reload() {
   //1.创建请求对象
   const xhr = new XMLHttpRequest();

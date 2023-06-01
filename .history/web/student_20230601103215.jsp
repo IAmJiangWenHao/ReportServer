@@ -81,7 +81,7 @@
       <a href="student.jsp" class="topbar-item" style="color: black;text-decoration:none;"> 实验报告上传</a>
       <div class="topbar-item"><a style="color: black;text-decoration:none;" href="exit.jsp">安全退出</a></div>
       <div class="topbar-item"><a style="color: black;text-decoration:none;" href="WEB-INF/set_password_email.jsp">修改密码</a></div>
-      <div class="topbar-item"><a style="color: black;text-decoration:none;" href="message.jsp">学生个人中心</a></div>
+
     </div>  
     <div style="display: flex; flex-direction:column;align-items: center;">
       <div >${sessionScope.user.fullname} 好，欢迎登录</div> 
